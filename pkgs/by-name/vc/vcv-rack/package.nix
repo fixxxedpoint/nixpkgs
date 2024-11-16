@@ -33,7 +33,7 @@ let
   };
 in
 stdenv.mkDerivation rec {
-  pname = "VCV-Rack";
+  pname = "vcv-rack";
   version = "2.5.2";
 
   desktopItems = [
