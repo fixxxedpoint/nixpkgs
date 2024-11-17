@@ -7,7 +7,25 @@ index fc7c3af1..c3672c6a 100644
  	LDFLAGS += -Wl,--whole-archive
  	LDFLAGS += -static-libstdc++ -static-libgcc
 -	LDFLAGS += dep/lib/libGLEW.a dep/lib/libglfw3.a dep/lib/libjansson.a dep/lib/libcurl.a dep/lib/libssl.a dep/lib/libcrypto.a dep/lib/libarchive.a dep/lib/libzstd.a dep/lib/libspeexdsp.a dep/lib/libsamplerate.a dep/lib/librtmidi.a dep/lib/librtaudio.a
-+	LDFLAGS += -lGLEW -lglfw -ljansson -lcurl -lssl -lcrypto -larchive -lz -lspeexdsp -lsamplerate -lrtmidi -lrtaudio
++	LDFLAGS += dep/lib/libglfw3.a dep/lib/librtmidi.a dep/lib/librtaudio.a dep/lib/libspeexdsp.a -lGLEW -ljansson -lcurl -lssl -lcrypto -larchive -lz -lsamplerate
  	LDFLAGS += -Wl,--no-whole-archive
  	LDFLAGS += -lpthread -lGL -ldl -lX11 -lasound -ljack -lpulse -lpulse-simple
  endif
+diff --git a/dep/Makefile b/dep/Makefile
+index 87c1278b..721d4d76 100755
+--- a/dep/Makefile
++++ b/dep/Makefile
+@@ -58,13 +58,8 @@ ghcfilesystem = include/ghc/filesystem.hpp
+ tinyexpr = include/tinyexpr.h
+ simde = include/simde
+ 
+-DEPS += $(glew)
+ DEPS += $(glfw)
+-DEPS += $(jansson)
+-DEPS += $(libcurl)
+-DEPS += $(libarchive)
+ DEPS += $(libspeexdsp)
+-DEPS += $(libsamplerate)
+ DEPS += $(rtmidi)
+ DEPS += $(rtaudio)
+ DEPS += $(nanovg)
