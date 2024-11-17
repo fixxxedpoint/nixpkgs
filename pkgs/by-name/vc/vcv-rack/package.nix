@@ -28,13 +28,13 @@
 let
   fundamental-source = builtins.fetchGit {
     url = "https://github.com/VCVRack/Fundamental.git";
-    rev = "5ed79544161e0fa9a55faa7c0a5f299e828e12ab"; # tip of branch v2
+    rev = "b453f192d22b1c951d71e8a73f28a37cd96a7b6c"; # tip of branch v2
     submodules = true;
   };
 in
 stdenv.mkDerivation rec {
   pname = "VCV-Rack";
-  version = "2.5.1";
+  version = "2.5.2";
 
   desktopItems = [
     (makeDesktopItem {
@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
   src = builtins.fetchGit {
     url = "https://github.com/VCVRack/Rack.git";
     ref = "refs/tags/v${version}";
-    rev = "3f133d8a0359b539bd262a4c3e1e6b4fb2ef83e6";
+    rev = "58f2482df860fe878581423aedc8cadb1d94eb50";
     submodules = true;
   };
 
